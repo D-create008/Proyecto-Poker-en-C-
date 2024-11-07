@@ -1,6 +1,6 @@
-# Poker game in C++
-Playable poker game using objet oriented programing
+# Video Poker game in C++
+Playable video poker game using object oriented programing
 Context: 
-Poker is a popular card game that involves multple betting rounds dependant on the revelation of five center cards. During each turn, the player has the choice to bet, check, raise or fold depending on the situation. After the betting rounds are over and all five center cards have been revealed, a winner is chosen. If all but one player folds before this moment, that player is automatically the winner.
+Video poker is a game where players try to form the best possible poker hand possible, following the "Jacks or Better" rules, which requires at least a pair of Jacks to win. The game begins with players being dealt five cards, and they have a total of two rounds to choose which cards to keep and which to swap for another random card. After the two rounds are finished, a player is left with his final hand. The hand is then evaluated based on astandard poker ranking chart, and how much the player wins varies according to the strength of the final hand, with higher rewards for stronger hands like royal flushes or full houses.
 Why this project is interesting:
-This project is interesting because it involves object programing through using classes such as card, deck, or player.
+This project is interesting because it involves object programing through using classes such as card, deck, or player, as well as being an interesting game from a statistical point of view, taking into consideration the likeyhood of a player to win and basing the payouts on those probabilities.
