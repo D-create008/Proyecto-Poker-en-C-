@@ -9,10 +9,10 @@ using namespace std;
 class Deck: public CardCollection{
   private:
     int deckSize;
-    vector<string> deck;
   public:
     Deck();
     void createDeck();
     void shuffleDeck();
+    string dealCard();
 };
 #endif
