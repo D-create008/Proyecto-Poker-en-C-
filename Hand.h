@@ -1,4 +1,5 @@
 #include "CardCollection.h"
+#include "Deck.h"
 #include <vector>
 #include <string>
 using namespace std;
@@ -9,11 +10,11 @@ using namespace std;
 class Hand: public CardCollection{
   private:
     int handSize;
-    vector<string> hand;
   public:
     Hand();
-    void replaceCard(int);
-    vector<string> getHand();
+    void replaceCard(int, Deck& deck);
+    void getHand(Deck& deck);
     void showHand();
     float evaluateHand();
-}
+};
+#endif
