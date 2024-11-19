@@ -1,16 +1,20 @@
+#include "CardCollection.h"
+#include "Deck.h"
+#include <vector>
 #include <string>
 using namespace std;
 
-#ifndef GAME_H
-#define GAME_H
+#ifndef HAND_H
+#define HAND_H
 
-class Game{
+class Hand: public CardCollection{
   private:
-    Player player;
-    Deck deck;
-    Hand hand;
-  public;
-    void beginGame();
-    void playGame();
+    int handSize;
+  public:
+    Hand();
+    void replaceCard(int, Deck& deck);
+    void getHand(Deck& deck);
+    void showHand();
+    float evaluateHand();
 };
 #endif
