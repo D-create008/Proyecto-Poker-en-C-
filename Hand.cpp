@@ -3,27 +3,29 @@
 #include <iostream>
 using namespace std;
 
-Hand::Hand(vector<string> _cardList) : CardCollection(_cardList){
+Hand::Hand() : CardCollection(vector<string>()){
   handSize = 5;
 }
 
-void Hand::getHand(){
-  for(int i=0; i<handSize; i++)
-    hand.push_back(deck.cardList.back()); 
-    deck.cardList.pop_back();
+void Hand::getHand(Deck& deck){
+  for(int i=0; i<handSize; i++){
+    string card = deck.dealCard();
+    addCard(card);
+  }    
 }
 
-void Hand::replaceCard(int cambio){
-  if (cambio<0 || cambio>4)
-    cout<<"No se puede cambiar esa carta"<<endl;
-  hand[cambio] = deck.cardList.back();
-  deck.cardList.pop_back();
+void Hand::replaceCard(int cambio, Deck& deck){
+  cardList[cambio] = deck.dealCard();
 }
 
-void Card::showHand(){
-  cout<<hand<<endl
+void Hand::showHand(){
+  for (const auto& card : cardList) {
+      cout << card << " ";  
+  }
+  cout << endl; 
+
 }
 
-float Card::evaluateHand(){
-  
+float Hand::evaluateHand(){
+  return 0.0;
 }
