@@ -12,13 +12,22 @@ void Deck::createDeck()
   string simbolo[13] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
   for(int i=0; i<4; i++){
     for(int j=0; j<13; j++){
-      cardList.push_back(palo[i]+simbolo[j]);
+      addCard(palo[i]+simbolo[j]);
     }
   }  
   deckSize = 52;
 }
 void Deck::shuffleDeck()
 {
-  shuffle(cardList.begin(),cardList.end(), default_random_engine());
+  random_device rd; 
+  default_random_engine gen(rd()); 
+  shuffle(cardList.begin(), cardList.end(), gen); 
+}
+
+string Deck::dealCard(){
+  string card = cardList.back();
+  cardList.pop_back();
+  deckSize = deckSize - 1;
+  return card;
 }
 
