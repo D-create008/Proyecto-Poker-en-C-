@@ -15,6 +15,7 @@ class Hand: public CardCollection{
     void replaceCard(int, Deck& deck);
     void getHand(Deck& deck);
     void showHand();
-    float evaluateHand();
+    int evaluateHand();
+    void clearHand();
 };
 #endif
