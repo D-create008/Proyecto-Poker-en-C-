@@ -5,22 +5,22 @@
 #include <algorithm>
 using namespace std;
 
-Hand::Hand() : CardCollection(vector<string>()){
+Hand::Hand() : CardCollection(vector<string>()){  //Constructor that initializes cardList in hand, and sets handSize as five
   handSize = 5;
 }
 
-void Hand::getHand(Deck& deck){
+void Hand::getHand(Deck& deck){  //Gets the starting hand by using a for loop to recieve a card from deck, and adds the card to the hand cardList
   for(int i=0; i<handSize; i++){
     string card = deck.dealCard();
     addCard(card);
   }    
 }
 
-void Hand::replaceCard(int cambio, Deck& deck){
+void Hand::replaceCard(int cambio, Deck& deck){  //Replaces a selected card with a new card from the deck by changing the value of the variable
   cardList[cambio] = deck.dealCard();
 }
 
-void Hand::showHand(){
+void Hand::showHand(){  //Prints the hand using a for loop and leaving a space between each card
   for (const auto& card : cardList) {
       cout << card << " ";  
   }
@@ -28,12 +28,13 @@ void Hand::showHand(){
 
 }
 
-int Hand::evaluateHand(){
-  vector<string> hand = cardList;
+int Hand::evaluateHand(){  //Method that assigns a multiplier for the bet based on hand strength
+  vector<string> hand = cardList; //Passes the current hand to a local variable
   vector<int> rank ;
   vector<string> suit;
   string r;
   for(int i=0; i<handSize; i++){
+    //Separates a hand into two vectors, one for rank and one for suit
     string card = hand[i];
     if (isdigit(card[0]) && isdigit(card[1])) {
         r = card.substr(0, 2); 
@@ -42,6 +43,7 @@ int Hand::evaluateHand(){
         r = card.substr(0, 1);             
         suit.push_back(card.substr(1));      
     }
+    //Changes a rank into its equivalent numeric value and sorts it greatest to least
     if(r == "A"){
       rank.push_back(14);
     }
@@ -63,6 +65,7 @@ int Hand::evaluateHand(){
   bool isStraight = true;
   bool isRoyalStraight = false;
   
+  //Checks to see what conditions the hand meets, is it a flush? a straight? both can be true
   for(int i=0; i<handSize; i++){
     if(suit[0] != suit[i]){
       isFlush = false;
@@ -80,6 +83,7 @@ int Hand::evaluateHand(){
     isStraight = true;
   }
 
+//Returns a value if certain hand conditions that form actual hands are met, at this point only flushes, straights, straight flushes, and royal flushes are checked
   if(isRoyalStraight && isFlush){
     return 250;
   }
@@ -96,6 +100,7 @@ int Hand::evaluateHand(){
   vector<int> repsUnsorted;
   vector<int> reps;
   int repNumber;
+  //This for loop checks how often each card repeats itself in the hand
   for(int i=0; i<handSize; i++){
     repNumber = 0;
     for(int j=0; j<handSize; j++){
@@ -112,6 +117,7 @@ int Hand::evaluateHand(){
   bool isTrio = false;
   bool isTwoPair = false;
   bool isPair = false;
+  //Based on the amount of times a card repeats itself in a hand, we can determine if it is one of the other hands we haven't checked for yet
   if(reps == vector<int>{4,4,4,4,1}){
     isPokers = true;
   }
@@ -127,7 +133,7 @@ int Hand::evaluateHand(){
   if(reps == vector<int>{2,2,1,1,1}){
     isPair = true;
   }
-
+//This if checks if a pair is a pair of Jacks or better, if it isnt, it is counted as a loss
   if(isPair){
     for(int i=0; i<handSize; i++){
       if(repsUnsorted[i] == 2){
@@ -137,7 +143,7 @@ int Hand::evaluateHand(){
       }
     }
   }
-
+//Returns a value of the hand if it is one of the following, or 0 if not
   if(isPokers){
     return 25;
   }
@@ -156,6 +162,6 @@ int Hand::evaluateHand(){
   return 0;
   
 }
-void Hand::clearHand(){
+void Hand::clearHand(){  //Method to empty the hand vector for the next round using the .clear vector algorithm
   cardList.clear();
 }
