@@ -12,7 +12,7 @@ void Deck::createDeck()
   string simbolo[13] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
   for(int i=0; i<4; i++){
     for(int j=0; j<13; j++){
-      addCard(palo[i]+simbolo[j]);
+      addCard(simbolo[j]+palo[i]);
     }
   }  
   deckSize = 52;
@@ -29,5 +29,8 @@ string Deck::dealCard(){
   cardList.pop_back();
   deckSize = deckSize - 1;
   return card;
+}
+void Deck:: clearDeck(){
+  cardList.clear();
 }
 
