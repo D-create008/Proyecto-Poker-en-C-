@@ -9,11 +9,11 @@ using namespace std;
 
 class Game{
   private:
-    Player player;
+    Player player;   //Atributes are the objects included through composition
     Deck deck;
     Hand hand;
   public:
-    Game(Player, Deck, Hand);
-    void startGame();
+    Game(Player, Deck, Hand);  //Game constructor
+    void startGame();      //Method to start game
 };
 #endif
