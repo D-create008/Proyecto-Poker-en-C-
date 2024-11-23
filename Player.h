@@ -1,18 +1,17 @@
-#include <string>
-using namespace std;
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
 class Player{
   private:
     string name;
-    float balance;
-    float currentBet;
+    int balance;
+    int currentBet;
   public:
-    Player(string, float, float);
+    Player();
     void setName(string);
-    void setBalance(float);
-    void makeBet(float);
-    float getBalance();
-}
+    void setBalance(int);
+    void makeBet(int);
+    int getBet();
+    int getBalance();
+};
+#endif
