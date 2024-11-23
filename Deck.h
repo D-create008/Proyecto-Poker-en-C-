@@ -8,12 +8,12 @@ using namespace std;
 
 class Deck: public CardCollection{
   private:
-    int deckSize;
+    int deckSize;  //Though no real aplication of deckSize is used, its an important attribute for order, and thinking of future modifications to, for example, print the deck
   public:
     Deck();
-    void createDeck();
-    void shuffleDeck();
-    string dealCard();
-    void clearDeck();
+    void createDeck();  //Creates a deck
+    void shuffleDeck();  //Shuffles the created deck
+    string dealCard();   //Deals the last card from the deck
+    void clearDeck();  //Clears the current deck, to be able to make and shuffle a new deck for the next rounf
 };
 #endif
