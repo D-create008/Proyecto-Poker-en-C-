@@ -1,19 +1,22 @@
 #include "Player.h"
 
-Player:: Player(string _name, float _balance, float _currentBet){
-  name = _name;
-  balance = _balance;
-  currentBet = _currentBet;
+Player:: Player(){
+  name = "To be set";
+  balance = 100;
+  currentBet = 0;
 }
 void Player:: setName(string _name){
   name = _name;
 }
-void Player:: setBalance(float _balance){
+void Player:: setBalance(int _balance){
   balance = _balance;
 }
-void Player:: setBet(float _currentBet){
+void Player:: makeBet(int _currentBet){
   currentBet = _currentBet;
 }
-float Player:: getBalance(){
+int Player::getBet() {
+    return currentBet;
+}
+int Player:: getBalance(){
   return balance;
 }
