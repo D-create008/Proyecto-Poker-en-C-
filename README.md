@@ -10,4 +10,5 @@ The classes included for this project are as follows:
 3) Deck class, this class is responsible mainly for creating and shuffling the deck that will be used in a game, as well as dealing cards to the Hand.
 4) Hand class, this class si responsible for storing a player's hand, as well as replacing cards in the hand with new cards from the deck.
 5) Player class, this class is responsible for storing a player's current balance, as well as managing the bets the player makes and the payout that they recieve.
-[Blank diagram.pdf](https://github.com/user-attachments/files/17878875/Blank.diagram.pdf)
+
+![Blank diagram](https://github.com/user-attachments/assets/8b014f30-62ca-4fe6-b1be-0ff5578f1be2)
