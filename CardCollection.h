@@ -7,9 +7,9 @@ using namespace std;
 
 class CardCollection{
     protected:
-        vector<string> cardList;
+        vector<string> cardList;  //Attribute that is shared by both Deck and Hand
     public:
-        CardCollection(vector<string>);
-        void addCard(string);
+        CardCollection(vector<string>);  //Initializes a string vector
+        void addCard(string);    //Method to add a card to your string vector
 };
 #endif
