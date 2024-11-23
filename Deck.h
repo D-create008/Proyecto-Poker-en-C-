@@ -14,5 +14,6 @@ class Deck: public CardCollection{
     void createDeck();
     void shuffleDeck();
     string dealCard();
+    void clearDeck();
 };
 #endif
