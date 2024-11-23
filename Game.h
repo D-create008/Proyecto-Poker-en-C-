@@ -1,4 +1,7 @@
 #include <string>
+#include "Deck.h"
+#include "Hand.h"
+#include "Player.h"
 using namespace std;
 
 #ifndef GAME_H
@@ -9,9 +12,8 @@ class Game{
     Player player;
     Deck deck;
     Hand hand;
-  public;
-    Game(player, deck, hand);
-    void beginGame();
-    void playGame();
+  public:
+    Game(Player, Deck, Hand);
+    void startGame();
 };
 #endif
